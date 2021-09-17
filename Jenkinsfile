@@ -25,7 +25,9 @@ pipeline {
 
       stage('Build and Push Image') {
          steps {
-            sh 'docker image build -t ${REPOSITORY_TAG} .'
+            script {
+                  def dockerImage = docker.build("my-image:${env.BUILD_ID}")
+            }
          }
       }
 
