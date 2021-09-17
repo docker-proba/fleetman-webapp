@@ -25,7 +25,7 @@ pipeline {
 
       stage('Build and Push Image') {
          steps {
-            def dockerImage = docker.build("my-image:${REPOSITORY_TAG}")
+            sh 'docker image build -t ${REPOSITORY_TAG} .'
          }
       }
 
